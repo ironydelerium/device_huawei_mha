@@ -23,3 +23,6 @@ chcon u:object_r:sysfs_leds:s0 /sys/class/leds/*/brightness
 chown system:system /sys/class/leds/*/brightness
 chown system:system /sys/class/leds/*/max_brightness
 
+# FIXME: Workaround for webview
+chmod 0666 /sys/kernel/debug/tracing/trace_marker
+
