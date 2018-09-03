@@ -1,2 +1,0 @@
-require board=hikey
-require version-bootloader=0.7

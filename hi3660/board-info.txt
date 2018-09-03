@@ -1,0 +1,2 @@
+require board=hi3660
+

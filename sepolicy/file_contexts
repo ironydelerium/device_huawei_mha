@@ -16,6 +16,15 @@
 /(vendor|system/vendor)/bin/uim  u:object_r:hci_attach_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth@1\.0-service\.hikey      u:object_r:hal_bluetooth_hikey_exec:s0
 /(vendor|system/vendor)/bin/nanoapp_cmd  u:object_r:nanoapp_cmd_exec:s0
-
+/(vendor|system/vendor)/bin/hw/android\.hardware\.health@2\.0-service\.hikey	u:object_r:hal_health_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light\@2\.0-service\.hikey	u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator\@1\.0-service\.hikey	u:object_r:hal_vibrator_default_exec:s0
+/system/bin/mha-boot\.sh u:object_r:phhsu_exec:s0
 # /data
 /data/vendor/sensor(/.*)?        u:object_r:sensor_vendor_data_file:s0
+
+# /sys/class/graphics/fb0/frame_update	u:object_r:sysfs_init_file:s0
+# /sys/class/leds/led_backlight0/(max_)?brightness u:object_r:sysfs_leds:s0
+# /sys/class/leds/(red|green|blue)/brightness u:object_r:sysfs_leds:s0
+# /sys/class/graphics/fb0/lcd_sleep_ctrl u:object_r:sysfs_init_file:s0
+

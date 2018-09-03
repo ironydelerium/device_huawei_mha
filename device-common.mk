@@ -67,11 +67,13 @@ PRODUCT_PACKAGES +=	TIInit_11.8.32.bts \
 			wl18xx-conf.bin
 
 
-ifeq ($(HIKEY_USE_LEGACY_TI_BLUETOOTH), true)
-PRODUCT_PACKAGES += android.hardware.bluetooth@1.0-service.hikey uim
-else
-PRODUCT_PACKAGES += android.hardware.bluetooth@1.0-service.btlinux
-endif
+# ifeq ($(HIKEY_USE_LEGACY_TI_BLUETOOTH), true)
+# PRODUCT_PACKAGES += android.hardware.bluetooth@1.0-service.hikey uim
+# else
+# PRODUCT_PACKAGES += android.hardware.bluetooth@1.0-service.btlinux
+# endif
+
+PRODUCT_PACKAGES += android.hardware.bluetooth@1.0-service android.hardware.bluetooth@1.0-impl
 
 # PowerHAL
 PRODUCT_PACKAGES += android.hardware.power@1.0-impl

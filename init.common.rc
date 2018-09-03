@@ -30,24 +30,18 @@ on fs
     mount_all /fstab.${ro.hardware}
     setprop ro.crypto.fuse_sdcard false
 
+on post-fs && property:ro.hardware=hi3660
+	exec - root -- /system/bin/mha-boot.sh
+	
 on post-fs
     # For legacy support
     # See storage config details at http://source.android.com/tech/storage/
     # since /storage is mounted on post-fs in init.rc
     symlink /sdcard /storage/sdcard0
 
-    # BT LED sysfs entry
-    write /sys/class/leds/bt_active/trigger "hci1rx"
-
     chmod 0666 /dev/ump
     chmod 0666 /dev/ion
     chmod 0666 /dev/graphics/fb0
-
-# fake some battery state
-    setprop status.battery.state Slow
-    setprop status.battery.level 5
-    setprop status.battery.level_raw  50
-    setprop status.battery.level_scale 9
 
 # Set Display density
     setprop ro.sf.lcd_density 160
@@ -55,15 +49,9 @@ on post-fs
 # Set supported opengles version
     setprop ro.opengles.version 196608
 
-# If an app forces screen rotation, revert it once the apps closes
-    setprop persist.demo.rotationlock 1
-
 # enable Google-specific location features,
 # like NetworkLocationProvider and LocationCollector
     setprop ro.com.google.locationfeatures 1
-
-# enable test harness
-    setprop ro.test_harness true
 
 on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
@@ -93,6 +81,9 @@ on property:sys.boot_completed=1
     # little cores, not on bigs to be used only by init
     write /dev/cpuset/system-background/cpus 0-3
 
+	# Make graphics keep going.
+	write /sys/class/graphics/fb0/frame_update 1
+
 on property:usb_speed.switch=high
     write /sys/kernel/debug/f72c0000.usb/config "0"
 
@@ -120,3 +111,4 @@ service watchdogd /sbin/watchdogd 10 20
     class core
     oneshot
     seclabel u:r:watchdogd:s0
+

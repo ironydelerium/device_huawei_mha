@@ -20,6 +20,6 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo hikey-userdebug
-add_lunch_combo hikey64_only-userdebug
-add_lunch_combo hikey960-userdebug
+add_lunch_combo mha-userdebug
+add_lunch_combo mha-eng
+

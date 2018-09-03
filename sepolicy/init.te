@@ -4,3 +4,5 @@ allow init configfs:file write;
 allow init configfs:lnk_file { create unlink };
 # for symlink /sdcard /mnt/sdcard
 allow init tmpfs:lnk_file create;
+allow init sysfs_init_file:file rw_file_perms;
+
