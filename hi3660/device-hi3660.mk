@@ -38,17 +38,21 @@ PRODUCT_PACKAGES += libbt-vendor
 # Healthd
 PRODUCT_PACKAGES += android.hardware.health@2.0-service.override
 DEVICE_FRAMEWORK_MANIFEST_FILE += system/libhidl/vintfdata/manifest_healthd_exclude.xml
-PRODUCT_PACKAGES += android.hardware.health@2.0-service.hikey
+PRODUCT_PACKAGES += android.hardware.health@2.0-service.hi3660
 
 # Vibrator
-PRODUCT_PACKAGES += android.hardware.vibrator@1.0-service.hikey
+PRODUCT_PACKAGES += android.hardware.vibrator@1.0-service.hi3660
 
 # Backlight & notification LEDs
-PRODUCT_PACKAGES += android.hardware.light@2.0-service.hikey
+PRODUCT_PACKAGES += android.hardware.light@2.0-service.hi3660
 
 # Copy boot script
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/boot.sh:system/bin/mha-boot.sh
+
+# Copy kernel
+PRODUCT_COPY_FILES += \
+	out/target/product/mha/kernel-output/arch/arm64/boot/Image.gz:kernel
 
 # Graphics
 # TODO: Replae the framebuffer based gralloc module with drm-gralloc and drm-hwcomposer
@@ -62,3 +66,5 @@ PRODUCT_PACKAGES += tinymix tinycap tinypcminfo
 
 # Include vendor binaries
 $(call inherit-product-if-exists, vendor/huawei/mha/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/gapps/device-vendor.mk)
+

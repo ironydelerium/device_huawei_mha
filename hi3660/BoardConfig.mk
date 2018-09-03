@@ -13,7 +13,9 @@ BOARD_KERNEL_CMDLINE += unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xff
 BOARD_KERNEL_CMDLINE += androidboot.selinux=enforcing buildvariant=$(TARGET_BUILD_VARIANT)
 
 BOARD_MKBOOTIMG_ARGS := --base 0x78000 --pagesize 2048 --kernel_offset 0x78000 --ramdisk_offset 0x7b88000
-BOARD_MKBOOTIMG_ARGS += --second_offset 0xf00000 --tags_offset 0x7988000 --hash sha1
+BOARD_MKBOOTIMG_ARGS += --second_offset 0xf00000 --tags_offset 0x7988000 
+
+# BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 2768240640   # 2640MB
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 25769803776 # 24GB

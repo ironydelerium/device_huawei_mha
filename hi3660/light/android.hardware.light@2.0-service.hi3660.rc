@@ -1,0 +1,4 @@
+service vendor.light-2-0-hi3660 /vendor/bin/hw/android.hardware.light@2.0-service.hi3660
+    class hal
+    user system
+    group system

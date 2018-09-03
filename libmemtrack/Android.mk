@@ -16,6 +16,7 @@ LOCAL_PATH := $(call my-dir)
 
 # HAL module implemenation stored in
 # hw/<POWERS_HARDWARE_MODULE_ID>.<ro.hardware>.so
+
 include $(CLEAR_VARS)
 
 LOCAL_MODULE_RELATIVE_PATH := hw
@@ -24,7 +25,9 @@ LOCAL_C_INCLUDES += hardware/libhardware/include
 LOCAL_CFLAGS := -Wconversion -Wall -Werror -Wno-sign-conversion
 LOCAL_CLANG  := true
 LOCAL_SHARED_LIBRARIES := liblog
-LOCAL_SRC_FILES := memtrack_hikey.c
+LOCAL_SRC_FILES := memtrack_hi3660.c
 LOCAL_MODULE := memtrack.default
+
 #LOCAL_MODULE := memtrack.$(TARGET_BOARD_PLATFORM)
+
 include $(BUILD_SHARED_LIBRARY)

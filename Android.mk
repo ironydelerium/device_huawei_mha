@@ -20,7 +20,9 @@
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
 
-ifneq ($(filter hikey%, $(TARGET_DEVICE)),)
+$(info Building for $(TARGET_DEVICE))
+
+ifeq ($(TARGET_DEVICE),hi3660)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -28,4 +30,6 @@ LOCAL_PATH := $(call my-dir)
 # their rules should be written here.
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
+
 endif
+

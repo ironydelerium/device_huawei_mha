@@ -9,8 +9,4 @@
 # it includes.
 #
 
-PRODUCT_MAKEFILES := \
-$(LOCAL_DIR)/hikey.mk \
-$(LOCAL_DIR)/hikey32.mk \
-$(LOCAL_DIR)/hikey64_only.mk \
-$(LOCAL_DIR)/hikey960.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/mha.mk

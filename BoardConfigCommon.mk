@@ -32,21 +32,23 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USE_PAN_DISPLAY := true
 
+BOARD_KERNEL_COMMANDLINE	:= loglevel=4 initcall_debug=n page_tracker=on slub_min_objects=16 unmovable_isolate1=2:192M,3:224M,4:256M 
+BOARD_KERNEL_COMMANDLINE	+= printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=enforcing
+BOARD_KERNEL_BASE 			:= 0x78000
+BOARD_KERNEL_PAGESIZE	 	:= 2048
+BOARD_KERNEL_OFFSET 		:= 0x8000
+BOARD_KERNEL_TAGS_OFFSET 	:= 0x7988000
+BOARD_KERNEL_RAMDISK_OFFSET := 0x7b88000
+BOARD_MKBOOTIMG_ARGS 		:= --kernel_offset $(BOARD_KERNEL_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+
 TARGET_USES_HWC2 := true
 SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
 
-TARGET_AUX_OS_VARIANT_LIST := neonkey argonkey
-
-BOARD_SEPOLICY_DIRS += device/linaro/hikey/sepolicy
+BOARD_SEPOLICY_DIRS += device/huawei/mha/sepolicy
 BOARD_SEPOLICY_DIRS += system/bt/vendor_libs/linux/sepolicy
 
-DEVICE_MANIFEST_FILE := device/linaro/hikey/manifest.xml
-DEVICE_MATRIX_FILE := device/linaro/hikey/compatibility_matrix.xml
-
-ifneq ($(TARGET_SENSOR_MEZZANINE),)
-DEVICE_MANIFEST_FILE += device/linaro/hikey/sensorhal/manifest.xml
-DEVICE_MANIFEST_FILE += device/linaro/hikey/vr/manifest.xml
-endif
+DEVICE_MANIFEST_FILE := device/huawei/mha/manifest.xml
+DEVICE_MATRIX_FILE := device/huawei/mha/compatibility_matrix.xml
 
 ifeq ($(HOST_OS), linux)
 ifeq ($(TARGET_SYSTEMIMAGES_USE_SQUASHFS), true)

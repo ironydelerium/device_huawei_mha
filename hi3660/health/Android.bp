@@ -1,6 +1,6 @@
 cc_binary {
-	name: "android.hardware.health@2.0-service.hikey",
-	init_rc: ["android.hardware.health@2.0-service.hikey.rc"],
+	name: "android.hardware.health@2.0-service.hi3660",
+	init_rc: ["android.hardware.health@2.0-service.hi3660.rc"],
 	proprietary: true,
 	relative_install_path: "hw",
 	srcs: ["HealthService.cpp"],

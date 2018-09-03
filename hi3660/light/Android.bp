@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.light@2.0-service.hikey",
+    name: "android.hardware.light@2.0-service.hi3660",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.light@2.0-service.hikey.rc"],
+    init_rc: ["android.hardware.light@2.0-service.hi3660.rc"],
     vendor: true,
     relative_install_path: "hw",
     srcs: ["service.cpp", "Light.cpp"],

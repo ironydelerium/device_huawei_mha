@@ -1,4 +1,0 @@
-service vendor.light-2-0-hikey /vendor/bin/hw/android.hardware.light@2.0-service.hikey
-    class hal
-    user system
-    group system
